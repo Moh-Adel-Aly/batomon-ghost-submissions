@@ -1,0 +1,30 @@
+name: Build validated ghost pool
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'incoming/*.json'
+      - 'catalog.json'
+      - 'scripts/build-pool.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/build-pool.mjs
+      - name: Publish pool
+        run: |
+          if git diff --quiet -- pool.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pool.json
+          git commit -m "Rebuild validated ghost pool"
+          git push
