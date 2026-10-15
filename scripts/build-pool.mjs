@@ -39,7 +39,7 @@ for(const entry of accepted){
   if(rivalKeys.has(entry.playerId)||![3,6,9].every(round=>snapshots[round]))continue;
   rivalKeys.add(entry.playerId);
   const base=snapshots[3];
-  pool.push({id:`player-rival-${entry.playerId}`,name:entry.playerName,round:3,trainer:base.trainer,gold:base.gold,chews:base.chews,board:base.board,snapshots,playerKey:entry.playerId,isPlayer:true});
+  pool.push({id:`player-rival-${entry.playerId}`,name:entry.playerName,round:3,trainer:base.trainer,gold:base.gold,chews:base.chews,board:base.board,bench:base.bench,snapshots,playerKey:entry.playerId,isPlayer:true});
 }
 fs.writeFileSync(path.join(root,'pool.json'),`${JSON.stringify(pool,null,2)}\n`);
 console.log(`Built pool with ${pool.length} entries (${accepted.length} submitted teams and ${rivalKeys.size} returning player rivals).`);

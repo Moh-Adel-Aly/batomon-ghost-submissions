@@ -1,6 +1,6 @@
 # Batomon Ghost Submissions
 
-This public repository stores Batomon team snapshots labeled with the public trainer name chosen in-game. The game sends a snapshot automatically when a player enters a regular match. Each record contains the display name, a salted pseudonymous browser key, the round, trainer, unspent gold, Chews, training stats, and six team slots. It does not include the raw browser ID, account identity, email, password, or save file. Names are not verified; players can reuse or impersonate names, and the name plus team can be publicly visible. Players should not enter personal information.
+This public repository stores Batomon team snapshots labeled with the public trainer name chosen in-game. The game sends a snapshot automatically when a player enters a regular match. Each record contains the display name, a salted pseudonymous browser key, the round, trainer, unspent gold, Chews, training stats, six active slots, and four reserve slots. It does not include the raw browser ID, account identity, email, password, or save file. Names are not verified; players can reuse or impersonate names, and the name plus team can be publicly visible. Players should not enter personal information.
 
 The game server validates each upload against its current creature, trainer, and item catalog, caps creature levels by round, and writes it under `incoming/`. A GitHub Actions workflow independently validates incoming files and rebuilds [`pool.json`](pool.json), which is the public opponent feed.
 
