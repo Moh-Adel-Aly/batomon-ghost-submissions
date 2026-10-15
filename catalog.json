@@ -57,5 +57,12 @@
     "moon-marrow",
     "wayflame-teether"
   ],
-  "bossRound": 10
+  "bossRound": 10,
+  "level3Caps": {
+    "from9": 6,
+    "before9": 3,
+    "before3": 0,
+    "before6": 1
+  },
+  "playerIdSalt": "9bfdf3398a39d40c4957fea7149568d7698400c84dc88e1d54cd0dc15c74fd01"
 }
